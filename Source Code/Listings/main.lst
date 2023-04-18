@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.7.0   MAIN                                                              04/18/2023 22:43:08 PAGE 1   
+C51 COMPILER V9.60.7.0   MAIN                                                              04/18/2023 23:52:15 PAGE 1   
 
 
 C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
@@ -12,31 +12,38 @@ line level    source
    2          #include <stdlib.h>
    3          #include "keypad.h"
    4          #include "timer0.h"
-   5          #include "quad_7segment.h"
-   6          sbit LED = P3^0;           
+   5          #include "Interrupt0.h"
+   6          #include "quad_7segment.h"        
    7                  
    8          void main (void)
    9          {
-  10   1        unsigned int nu=1234;
+  10   1        unsigned int num = 0;
   11   1        init_7segment();
-  12   1          
-  13   1          while(1)                
-  14   1          {
-  15   2            show_7segment(7651);
-  16   2            
-  17   2          }
-  18   1      }
+  12   1        keypad_init();
+  13   1        Ext_int_Init();
+*** WARNING C206 IN LINE 13 OF main.c: 'Ext_int_Init': missing function-prototype
+  14   1          while(1)                
+  15   1          {
+  16   2            unsigned char temp = read_char();
+  17   2            if (temp != 'k')
+  18   2            {
+  19   3              num = num * 10;
+  20   3              num += (temp - '0');
+  21   3            }
+  22   2            show_7segment(num);
+  23   2          }
+  24   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =     18    ----
+   CODE SIZE        =     68    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =   ----       2
+   DATA SIZE        =   ----       3
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.
 
 
-C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

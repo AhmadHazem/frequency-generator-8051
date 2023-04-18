@@ -110,7 +110,11 @@ void show_7segment(unsigned int num){
 				P2=	pattern4;
 	}
 	else if (flag==4){
-				
+				control1 = 0;           
+				control2 = 0;           
+				control3 = 0;            
+				control4 = 0;
+				P2=	pattern4;
 	}
 	
 }
