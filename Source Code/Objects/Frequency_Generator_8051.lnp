@@ -1,0 +1,5 @@
+".\Objects\main.obj",
+".\Objects\quad_7segment.obj",
+".\Objects\timer0.obj" 
+TO ".\Objects\Frequency_Generator_8051" 
+PRINT(".\Listings\Frequency_Generator_8051.m51")

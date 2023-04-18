@@ -1,0 +1,75 @@
+C51 COMPILER V9.60.7.0   TIMER0                                                            04/18/2023 15:46:49 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE TIMER0
+OBJECT MODULE PLACED IN .\Objects\timer0.obj
+COMPILER INVOKED BY: C:\Users\Blu-Ray\Desktop\Keil 8051\C51\BIN\C51.EXE timer0.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEX
+                    -TEND PRINT(.\Listings\timer0.lst) TABS(2) OBJECT(.\Objects\timer0.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          #include "timer0.h"
+   3          // Define the desired delay value in milliseconds
+   4          #define DELAY_MS 2
+   5          
+   6          // Define the timer reload value
+   7          // The timer counts up from 0 to 255, then reloads with this value to start again
+   8          #define TIMER_RELOAD_VALUE (65536 - (DELAY_MS * 1000 / 12))
+   9          
+  10          
+  11          
+  12          // Initialize Timer 0 with interrupt
+  13          void init_timer0()
+  14          {
+  15   1        // Set the timer mode to 16-bit mode
+  16   1        TMOD |= 0x01;
+  17   1      
+  18   1        // Set the timer reload value
+  19   1        TH0 = TIMER_RELOAD_VALUE >> 8;
+  20   1        TL0 = TIMER_RELOAD_VALUE & 0xFF;
+  21   1      
+  22   1        // Enable Timer 0 interrupt
+  23   1        ET0 = 1;
+  24   1      
+  25   1        // Enable interrupts globally
+  26   1        EA = 1;
+  27   1      }
+  28          
+  29          // Create a delay function that uses Timer 0 with interrupt
+  30          void delay_timer0()
+  31          {
+  32   1        // Start Timer 0
+  33   1        TR0 = 1;
+  34   1      
+  35   1        // Wait for the Timer 0 interrupt to occur
+  36   1        while (TF0 == 0);
+  37   1      
+  38   1        // Reset the Timer 0 interrupt flag
+  39   1        TF0 = 0;
+  40   1      
+  41   1        // Stop Timer 0
+  42   1        TR0 = 0;
+  43   1      }
+  44          
+  45          // Declare the interrupt service routine for Timer 0
+  46          void Timer0_INT (void) interrupt 1
+  47          {   // timer 0 overflow every 50 msec
+  48   1          
+  49   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     25    ----
+   CONSTANT SIZE    =   ----    ----
+C51 COMPILER V9.60.7.0   TIMER0                                                            04/18/2023 15:46:49 PAGE 2   
+
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

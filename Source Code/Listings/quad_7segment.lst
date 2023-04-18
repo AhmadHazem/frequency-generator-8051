@@ -1,0 +1,138 @@
+C51 COMPILER V9.60.7.0   QUAD_7SEGMENT                                                     04/18/2023 15:43:09 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE QUAD_7SEGMENT
+OBJECT MODULE PLACED IN .\Objects\quad_7segment.obj
+COMPILER INVOKED BY: C:\Users\Blu-Ray\Desktop\Keil 8051\C51\BIN\C51.EXE quad_7segment.c OPTIMIZE(8,SPEED) BROWSE DEBUG O
+                    -BJECTEXTEND PRINT(.\Listings\quad_7segment.lst) TABS(2) OBJECT(.\Objects\quad_7segment.obj)
+
+line level    source
+
+   1          #include "timer0.h"
+   2          #include "quad_7segment.h"
+   3          
+   4          sbit control1 = P0^3;            // Defining LED pin
+   5          sbit control2 = P0^2;            // Defining LED pin
+   6          sbit control3 = P0^1;            // Defining LED pin
+   7          sbit control4 = P0^0;            // Defining LED pin
+   8          #define DIGIT_0 0xC0
+   9          #define DIGIT_1 0xF9
+  10          #define DIGIT_2 0xA4
+  11          #define DIGIT_3 0xB0
+  12          #define DIGIT_4 0x99
+  13          #define DIGIT_5 0x92
+  14          #define DIGIT_6 0x82
+  15          #define DIGIT_7 0xF8
+  16          #define DIGIT_8 0x80
+  17          #define DIGIT_9 0x90
+  18          #define BLANK 0xFF
+  19          
+  20          void init_7segment(){
+  21   1        init_timer0();
+  22   1        control1=0; //turn off control
+  23   1        control2=0; //turn off control
+  24   1        control3=0; //turn off control
+  25   1        control4=0; //turn off control
+  26   1        P2=DIGIT_4; //clear PORT
+  27   1      }
+  28          unsigned char numToPattern(unsigned char digit){
+  29   1        unsigned char pattern=0;
+  30   1        switch (digit) {
+  31   2          case 0:
+  32   2                  pattern=DIGIT_0;
+  33   2                  break;
+  34   2          case 1:
+  35   2                  pattern=DIGIT_1;
+  36   2                  break;
+  37   2          case 2:
+  38   2                  pattern=DIGIT_2;
+  39   2                  break;
+  40   2          case 3:
+  41   2                  pattern=DIGIT_3;
+  42   2              break;
+  43   2          case 4:
+  44   2                  pattern=DIGIT_4;
+  45   2              break;
+  46   2          case 5:
+  47   2                  pattern=DIGIT_5;
+  48   2              break;
+  49   2          case 6:
+  50   2                  pattern=DIGIT_6;
+  51   2              break;
+  52   2          case 7:
+  53   2                  pattern=DIGIT_7;
+  54   2              break;
+C51 COMPILER V9.60.7.0   QUAD_7SEGMENT                                                     04/18/2023 15:43:09 PAGE 2   
+
+  55   2          case 8:
+  56   2                  pattern=DIGIT_8;
+  57   2              break;
+  58   2          case 9:
+  59   2                  pattern=DIGIT_9;
+  60   2              break;
+  61   2          default:
+  62   2              // Display a blank segment
+  63   2                  pattern=BLANK;
+  64   2              break;
+  65   2      }
+  66   1        return pattern;
+  67   1      }
+  68          
+  69          
+  70          
+  71          void show_7segment(unsigned int num){
+  72   1        unsigned char digit1=num%10;
+  73   1        unsigned char digit2=(num/10)%10;
+  74   1        unsigned char digit3=(num/100)%10;
+  75   1        unsigned char digit4=(num/1000)%10;
+  76   1        unsigned char pattern1=numToPattern(digit1);
+  77   1        unsigned char pattern2=numToPattern(digit2);
+  78   1        unsigned char pattern3=numToPattern(digit3);
+  79   1        unsigned char pattern4=numToPattern(digit4);
+  80   1        delay_timer0();
+  81   1        control1 = 1;           
+  82   1        control2 = 0;           
+  83   1        control3 = 0;            
+  84   1        control4 = 0;
+  85   1        P2= pattern1;
+  86   1        delay_timer0();
+  87   1        
+  88   1        control1 = 0;           
+  89   1        control2 = 1;           
+  90   1        control3 = 0;            
+  91   1        control4 = 0;
+  92   1        P2= pattern2;
+  93   1        delay_timer0();
+  94   1        
+  95   1        control1 = 0;           
+  96   1        control2 = 0;           
+  97   1        control3 = 1;            
+  98   1        control4 = 0;
+  99   1        P2= pattern3;
+ 100   1        delay_timer0();
+ 101   1        
+ 102   1        control1 = 0;           
+ 103   1        control2 = 0;           
+ 104   1        control3 = 0;            
+ 105   1        control4 = 1;
+ 106   1        P2= pattern4;
+ 107   1        delay_timer0();
+ 108   1        
+ 109   1      
+ 110   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    263    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+C51 COMPILER V9.60.7.0   QUAD_7SEGMENT                                                     04/18/2023 15:43:09 PAGE 3   
+
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       7
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
