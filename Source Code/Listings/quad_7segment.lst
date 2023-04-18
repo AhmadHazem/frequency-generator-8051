@@ -1,10 +1,10 @@
-C51 COMPILER V9.60.7.0   QUAD_7SEGMENT                                                     04/18/2023 15:43:09 PAGE 1   
+C51 COMPILER V9.60.7.0   QUAD_7SEGMENT                                                     04/18/2023 17:48:06 PAGE 1   
 
 
 C51 COMPILER V9.60.7.0, COMPILATION OF MODULE QUAD_7SEGMENT
 OBJECT MODULE PLACED IN .\Objects\quad_7segment.obj
-COMPILER INVOKED BY: C:\Users\Blu-Ray\Desktop\Keil 8051\C51\BIN\C51.EXE quad_7segment.c OPTIMIZE(8,SPEED) BROWSE DEBUG O
-                    -BJECTEXTEND PRINT(.\Listings\quad_7segment.lst) TABS(2) OBJECT(.\Objects\quad_7segment.obj)
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE quad_7segment.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\List
+                    -ings\quad_7segment.lst) TABS(2) OBJECT(.\Objects\quad_7segment.obj)
 
 line level    source
 
@@ -62,7 +62,7 @@ line level    source
   52   2          case 7:
   53   2                  pattern=DIGIT_7;
   54   2              break;
-C51 COMPILER V9.60.7.0   QUAD_7SEGMENT                                                     04/18/2023 15:43:09 PAGE 2   
+C51 COMPILER V9.60.7.0   QUAD_7SEGMENT                                                     04/18/2023 17:48:06 PAGE 2   
 
   55   2          case 8:
   56   2                  pattern=DIGIT_8;
@@ -126,7 +126,7 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
    CODE SIZE        =    263    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
-C51 COMPILER V9.60.7.0   QUAD_7SEGMENT                                                     04/18/2023 15:43:09 PAGE 3   
+C51 COMPILER V9.60.7.0   QUAD_7SEGMENT                                                     04/18/2023 17:48:06 PAGE 3   
 
    PDATA SIZE       =   ----    ----
    DATA SIZE        =   ----       7

@@ -1,5 +1,6 @@
 ".\Objects\main.obj",
 ".\Objects\quad_7segment.obj",
-".\Objects\timer0.obj" 
+".\Objects\timer0.obj",
+".\Objects\keypad.obj" 
 TO ".\Objects\Frequency_Generator_8051" 
 PRINT(".\Listings\Frequency_Generator_8051.m51")

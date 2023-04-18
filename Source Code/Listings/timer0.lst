@@ -1,10 +1,10 @@
-C51 COMPILER V9.60.7.0   TIMER0                                                            04/18/2023 15:46:49 PAGE 1   
+C51 COMPILER V9.60.7.0   TIMER0                                                            04/18/2023 17:48:06 PAGE 1   
 
 
 C51 COMPILER V9.60.7.0, COMPILATION OF MODULE TIMER0
 OBJECT MODULE PLACED IN .\Objects\timer0.obj
-COMPILER INVOKED BY: C:\Users\Blu-Ray\Desktop\Keil 8051\C51\BIN\C51.EXE timer0.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEX
-                    -TEND PRINT(.\Listings\timer0.lst) TABS(2) OBJECT(.\Objects\timer0.obj)
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE timer0.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\ti
+                    -mer0.lst) TABS(2) OBJECT(.\Objects\timer0.obj)
 
 line level    source
 
@@ -18,7 +18,7 @@ line level    source
    8          #define TIMER_RELOAD_VALUE (65536 - (DELAY_MS * 1000 / 12))
    9          
   10          
-  11          
+  11          sbit LED = P3^1;            // Defining test pin
   12          // Initialize Timer 0 with interrupt
   13          void init_timer0()
   14          {
@@ -55,14 +55,14 @@ line level    source
   45          // Declare the interrupt service routine for Timer 0
   46          void Timer0_INT (void) interrupt 1
   47          {   // timer 0 overflow every 50 msec
-  48   1          
+  48   1          LED^=1;
   49   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =     25    ----
+   CODE SIZE        =     34    ----
    CONSTANT SIZE    =   ----    ----
-C51 COMPILER V9.60.7.0   TIMER0                                                            04/18/2023 15:46:49 PAGE 2   
+C51 COMPILER V9.60.7.0   TIMER0                                                            04/18/2023 17:48:06 PAGE 2   
 
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----

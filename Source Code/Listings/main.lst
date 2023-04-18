@@ -1,45 +1,32 @@
-C51 COMPILER V9.60.7.0   MAIN                                                              04/18/2023 15:40:25 PAGE 1   
+C51 COMPILER V9.60.7.0   MAIN                                                              04/18/2023 17:48:05 PAGE 1   
 
 
 C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
 OBJECT MODULE PLACED IN .\Objects\main.obj
-COMPILER INVOKED BY: C:\Users\Blu-Ray\Desktop\Keil 8051\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTE
-                    -ND PRINT(.\Listings\main.lst) TABS(2) OBJECT(.\Objects\main.obj)
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
 
 line level    source
 
-   1          #include<reg51.h>           // special function register declarations
-   2                                      // for the intended 8051 derivative
-   3                                      
-   4          #include"quad_7segment.h"
-   5          sbit LED = P3^0;            // Defining LED pin
-   6          
-   7          void Delay(void);           // Function prototype declaration
-   8          
-   9          void main (void)
-  10          {
-  11   1          init_7segment();
-  12   1          while(1)                // infinite loop
-  13   1          {
-  14   2          show_7segment(1234);
-  15   2          }
-  16   1      }
-  17          
-  18          void Delay(void)
-  19          {
-  20   1          int j;
-  21   1          int i;
-  22   1          for(i=0;i<10;i++)
-  23   1          {
-  24   2              for(j=0;j<10000;j++)
-  25   2              {
-  26   3              }
-  27   2          }
-  28   1      }
+   1          #include <reg51.h>  
+   2          #include <stdlib.h>
+   3          #include "keypad.h"
+   4          #include "timer0.h"
+   5          #include "quad_7segment.h"
+   6          sbit LED = P3^0;           
+   7                  
+   8          void main (void) {
+   9   1          init_7segment();
+  10   1          
+  11   1          while(1)                
+  12   1          {
+  13   2            show_7segment(1234);
+  14   2          }
+  15   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =     41    ----
+   CODE SIZE        =     12    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
