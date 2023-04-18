@@ -1,4 +1,4 @@
 #include <reg51.h>
-void timer0_isr();
+int get_global_variable();
 void init_timer0();
 void delay_timer0();

@@ -8,21 +8,11 @@ void Delay(void);           // Function prototype declaration
 
 void main (void)
 {
+	int nu=0;
 	  init_7segment();
     while(1)                // infinite loop
     {
-		show_7segment(1234);
-    }
-}
-
-void Delay(void)
-{
-    int j;
-    int i;
-    for(i=0;i<10;i++)
-    {
-        for(j=0;j<10000;j++)
-        {
-        }
+			nu++;
+			show_7segment(nu);
     }
 }
