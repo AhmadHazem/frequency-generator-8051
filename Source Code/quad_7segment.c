@@ -17,6 +17,8 @@ sbit control4 = P0^0;            // Defining LED pin
 #define DIGIT_9 0x90
 #define BLANK 0xFF
 
+
+
 void init_7segment(){
 	init_timer0();
 	control1=0; //turn off control
@@ -25,6 +27,8 @@ void init_7segment(){
 	control4=0; //turn off control
 	P2=DIGIT_4; //clear PORT
 }
+
+
 unsigned char numToPattern(unsigned char digit){
 	unsigned char pattern=0;
 	switch (digit) {
@@ -69,6 +73,7 @@ unsigned char numToPattern(unsigned char digit){
 
 
 void show_7segment(unsigned int num){
+	
 	unsigned char digit1=num%10;
 	unsigned char digit2=(num/10)%10;
 	unsigned char digit3=(num/100)%10;
@@ -77,34 +82,36 @@ void show_7segment(unsigned int num){
 	unsigned char pattern2=numToPattern(digit2);
 	unsigned char pattern3=numToPattern(digit3);
 	unsigned char pattern4=numToPattern(digit4);
-	delay_timer0();
-	control1 = 1;           
-	control2 = 0;           
-	control3 = 0;            
-	control4 = 0;
-	P2=	pattern1;
-	delay_timer0();
+	int flag=get_global_variable();
+	if(flag==0){
+			control1 = 1;           
+			control2 = 0;           
+			control3 = 0;            
+			control4 = 0;
+			P2=	pattern1;
+	}else if (flag==1){
+			control1 = 0;           
+			control2 = 1;           
+			control3 = 0;            
+			control4 = 0;
+			P2=	pattern2;
+	}
+	else if (flag==2){
+				control1 = 0;           
+				control2 = 0;           
+				control3 = 1;            
+				control4 = 0;
+				P2=	pattern3;	}
+	else if (flag==3){
+				control1 = 0;           
+				control2 = 0;           
+				control3 = 0;            
+				control4 = 1;
+				P2=	pattern4;
+	}
+	else if (flag==4){
+				
+	}
 	
-	control1 = 0;           
-	control2 = 1;           
-	control3 = 0;            
-	control4 = 0;
-	P2=	pattern2;
-	delay_timer0();
-	
-	control1 = 0;           
-	control2 = 0;           
-	control3 = 1;            
-	control4 = 0;
-	P2=	pattern3;
-	delay_timer0();
-	
-	control1 = 0;           
-	control2 = 0;           
-	control3 = 0;            
-	control4 = 1;
-	P2=	pattern4;
-	delay_timer0();
-	
-
 }
+

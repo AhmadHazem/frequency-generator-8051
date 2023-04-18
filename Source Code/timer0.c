@@ -1,49 +1,62 @@
 #include <reg51.h>
 #include "timer0.h"
 // Define the desired delay value in milliseconds
-#define DELAY_MS 2
-
+//#define DELAY_MS 2
 // Define the timer reload value
 // The timer counts up from 0 to 255, then reloads with this value to start again
-#define TIMER_RELOAD_VALUE (65536 - (DELAY_MS * 1000 / 12))
+//#define TIMER_RELOAD_VALUE (65536 - (DELAY_MS * 1000 / 1))
+ int global_variable;  /* Declaration of the variable */
 
 
-sbit LED = P3^1;            // Defining test pin
 // Initialize Timer 0 with interrupt
-void init_timer0()
+void init_timer0(	)
 {
   // Set the timer mode to 16-bit mode
   TMOD |= 0x01;
 
   // Set the timer reload value
-  TH0 = TIMER_RELOAD_VALUE >> 8;
-  TL0 = TIMER_RELOAD_VALUE & 0xFF;
-
+  //TH0 = TIMER_RELOAD_VALUE >> 8;
+  //TL0 = TIMER_RELOAD_VALUE & 0xFF;
   // Enable Timer 0 interrupt
   ET0 = 1;
 
   // Enable interrupts globally
   EA = 1;
+	
+	  // Start Timer 0
+  TR0 = 1;
 }
 
-// Create a delay function that uses Timer 0 with interrupt
-void delay_timer0()
-{
-  // Start Timer 0
-  TR0 = 1;
-
-  // Wait for the Timer 0 interrupt to occur
-  while (TF0 == 0);
-
-  // Reset the Timer 0 interrupt flag
+int get_global_variable(){
+	return global_variable;
+}
+unsigned char temp=0;
+// Declare the interrupt service routine for Timer 0
+void Timer0_INT (void) interrupt 1
+{   
+	// Reset the Timer 0 interrupt flag
   TF0 = 0;
 
   // Stop Timer 0
   TR0 = 0;
-}
-
-// Declare the interrupt service routine for Timer 0
-void Timer0_INT (void) interrupt 1
-{   // timer 0 overflow every 50 msec
-		LED^=1;
+	
+	TH0 = 0xDA;
+  TL0 = 0x00;
+	if(temp==0){
+		global_variable=0;
+	}else if (temp==1){
+		global_variable=1;
+	}
+	else if (temp==2){
+		global_variable=2;
+	}
+	else if (temp==3){
+		global_variable=3;
+	}
+	else if (temp==4){
+		global_variable=4;
+	}
+	temp++;if (temp==5)temp=0;
+	// Start Timer 0
+  TR0 = 1;
 }

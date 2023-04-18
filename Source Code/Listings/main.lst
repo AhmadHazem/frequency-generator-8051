@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 C51 COMPILER V9.60.7.0   MAIN                                                              04/18/2023 17:48:05 PAGE 1   
+=======
+C51 COMPILER V9.60.7.0   MAIN                                                              04/18/2023 20:17:21 PAGE 1   
+>>>>>>> b503ed1979fa9e1f1cb63ba7d93ef457c90def69
 
 
 C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
@@ -8,6 +12,7 @@ COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE 
 
 line level    source
 
+<<<<<<< HEAD
    1          #include <reg51.h>  
    2          #include <stdlib.h>
    3          #include "keypad.h"
@@ -27,10 +32,34 @@ line level    source
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
    CODE SIZE        =     12    ----
+=======
+   1          #include<reg51.h>           // special function register declarations
+   2                                      // for the intended 8051 derivative
+   3                                      
+   4          #include"quad_7segment.h"
+   5          sbit LED = P3^0;            // Defining LED pin
+   6          
+   7          void Delay(void);           // Function prototype declaration
+   8          
+   9          void main (void)
+  10          {
+  11   1        int nu=0;
+  12   1          init_7segment();
+  13   1          while(1)                // infinite loop
+  14   1          {
+  15   2            nu++;
+  16   2            show_7segment(nu);
+  17   2          }
+  18   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     24    ----
+>>>>>>> b503ed1979fa9e1f1cb63ba7d93ef457c90def69
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =   ----    ----
+   DATA SIZE        =   ----       2
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.
