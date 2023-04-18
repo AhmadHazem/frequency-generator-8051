@@ -40,7 +40,7 @@ void Timer0_INT (void) interrupt 1
   // Stop Timer 0
   TR0 = 0;
 	
-	TH0 = 0xDA;
+	TH0 = 0xDF;
   TL0 = 0x00;
 	if(temp==0){
 		global_variable=0;
