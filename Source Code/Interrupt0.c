@@ -1,18 +1,19 @@
 #include "Interrupt0.h"
-#include "quad_7segment.h"
-sbit SWT = P3^2;
 
+sbit flag = P3^0;
 
-void Ext_int_Init(void)				
+void Ext_int0_Init(void)				
 {
-	EA  = 1;	/* Enable global interrupt */
+	flag = 1;
+	EA  = 1;	
 	EX0 = 1;      	/* Enable Ext. interrupt0 */
 	IT0 = 1;      	/* Select Ext. interrupt0 on falling edge */
 }
 
-void External0_ISR() interrupt 0
+void External0_ISR(void) interrupt 0
 {
-	show_7segment(0);
-	//Here ya zoz
+	
+	flag = 0;
+	// Mtgeesh hna ya zoz 5lif fe el if in the main.c
 } 
 

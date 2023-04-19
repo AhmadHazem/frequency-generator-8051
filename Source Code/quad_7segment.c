@@ -72,7 +72,8 @@ unsigned char numToPattern(unsigned char digit){
 
 
 
-void show_7segment(unsigned int num){
+void show_7segment(unsigned int num)
+	{
 	
 	unsigned char digit1=num%10;
 	unsigned char digit2=(num/10)%10;

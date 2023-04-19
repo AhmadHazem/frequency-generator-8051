@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.7.0   MAIN                                                              04/18/2023 23:52:15 PAGE 1   
+C51 COMPILER V9.60.7.0   MAIN                                                              04/19/2023 18:10:34 PAGE 1   
 
 
 C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
@@ -14,36 +14,60 @@ line level    source
    4          #include "timer0.h"
    5          #include "Interrupt0.h"
    6          #include "quad_7segment.h"        
-   7                  
-   8          void main (void)
-   9          {
-  10   1        unsigned int num = 0;
-  11   1        init_7segment();
-  12   1        keypad_init();
-  13   1        Ext_int_Init();
-*** WARNING C206 IN LINE 13 OF main.c: 'Ext_int_Init': missing function-prototype
-  14   1          while(1)                
-  15   1          {
-  16   2            unsigned char temp = read_char();
-  17   2            if (temp != 'k')
-  18   2            {
-  19   3              num = num * 10;
-  20   3              num += (temp - '0');
-  21   3            }
-  22   2            show_7segment(num);
-  23   2          }
-  24   1      }
+   7          sbit flag = P3^0;
+   8          
+   9          
+  10          void main (void)
+  11          {
+  12   1        // Zeyad !!!!!
+  13   1        // ro7 3la interrupt0.c w mtnshash t5li el frequency b zero henak b3d el interupt
+  14   1        // Your assignment is to generate el frequecny in the num
+  15   1        unsigned int num = 0;
+  16   1        short counter = 0;
+  17   1        // Intialize 7-Segment
+  18   1        init_7segment();
+  19   1        // Intialize keypad
+  20   1        keypad_init();
+  21   1        // Intialize Interrupts 0
+  22   1        Ext_int0_Init();
+  23   1          while(1)                
+  24   1          {
+  25   2            // read character from keypad
+  26   2            unsigned char temp = read_char();
+  27   2            // if it is k skip otherwise enter if condition
+  28   2            if (temp != 'k')
+  29   2            {
+  30   3              // multiply num by 10
+  31   3              num = num * 10;
+  32   3              // Add newly read character to the 7 segment
+  33   3              num += (temp - '0');
+  34   3              //Counter to check if limit reached
+  35   3              counter ++;
+  36   3            }
+  37   2            //print on 7 segment
+  38   2            //Global Flag
+  39   2            if (flag == 0 || counter == 5)
+  40   2            {
+  41   3              num = 0;
+  42   3              counter = 0;
+  43   3              flag = 1;
+  44   3            }
+  45   2            show_7segment(num);
+  46   2          }
+  47   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =     68    ----
+   CODE SIZE        =    102    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =   ----       3
+C51 COMPILER V9.60.7.0   MAIN                                                              04/19/2023 18:10:34 PAGE 2   
+
+   DATA SIZE        =   ----       5
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
 END OF MODULE INFORMATION.
 
 
-C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
