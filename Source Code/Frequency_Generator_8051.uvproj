@@ -404,12 +404,12 @@
             <File>
               <FileName>keypad.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\keypad.c</FilePath>
+              <FilePath>.\keypad.c</FilePath>
             </File>
             <File>
               <FileName>keypad.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\..\keypad.h</FilePath>
+              <FilePath>.\keypad.h</FilePath>
             </File>
             <File>
               <FileName>Interrupt0.h</FileName>
@@ -420,6 +420,16 @@
               <FileName>Interrupt0.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Interrupt0.c</FilePath>
+            </File>
+            <File>
+              <FileName>timer1.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\timer1.h</FilePath>
+            </File>
+            <File>
+              <FileName>timer1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\timer1.c</FilePath>
             </File>
           </Files>
         </Group>
