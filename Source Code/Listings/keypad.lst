@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.7.0   KEYPAD                                                            04/20/2023 15:49:42 PAGE 1   
+C51 COMPILER V9.60.7.0   KEYPAD                                                            04/25/2023 13:53:54 PAGE 1   
 
 
 C51 COMPILER V9.60.7.0, COMPILATION OF MODULE KEYPAD
@@ -28,20 +28,20 @@ line level    source
   18          {
   19   1        unsigned char key = 'k';
   20   1        ROW1 = 0; ROW2 = 1; ROW3 = 1; ROW4 = 1;
-  21   1        while (COL1 == 0) key = '7';
-  22   1        while (COL2 == 0) key = '8';
-  23   1        while (COL3 == 0) key = '9';
-  24   1        while (COL4 == 0) key = 'A';
+  21   1        while (COL1 == 0) key = '1';
+  22   1        while (COL2 == 0) key = '2';
+  23   1        while (COL3 == 0) key = '3';
+  24   1        while (COL4 == 0) key = 'C';
   25   1        ROW1 = 1; ROW2 = 0; ROW3 = 1; ROW4 = 1;
   26   1        while (COL1 == 0) key = '4';
   27   1        while (COL2 == 0) key = '5';
   28   1        while (COL3 == 0) key = '6';
   29   1        while (COL4 == 0) key = 'B';
   30   1        ROW1 = 1; ROW2 = 1; ROW3 = 0; ROW4 = 1;
-  31   1        while (COL1 == 0) key = '1';
-  32   1        while (COL2 == 0) key = '2';
-  33   1        while (COL3 == 0) key = '3';
-  34   1        while (COL4 == 0) key = 'C';
+  31   1        while (COL1 == 0) key = '7';
+  32   1        while (COL2 == 0) key = '8';
+  33   1        while (COL3 == 0) key = '9';
+  34   1        while (COL4 == 0) key = 'A';
   35   1        ROW1 = 1; ROW2 = 1; ROW3 = 1; ROW4 = 0;
   36   1        while (COL1 == 0) key = '*';
   37   1        while (COL2 == 0) key = '0';

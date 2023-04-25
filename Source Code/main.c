@@ -6,7 +6,7 @@
 #include "quad_7segment.h"  
 #include "timer1.h"
 
-sbit flag = P3^0;
+sbit flag = P3^6;
 
 
 void main (void)
@@ -40,15 +40,11 @@ void main (void)
 		}
 		//print on 7 segment
 		//Global Flag
-		if (flag == 0 || counter == 5)
-		{
-			num = 0;
-			counter = 0;
-			flag = 1;
-		}
-		show_7segment(num);
-
 		// Frequency generator
-		set_sq_wave(num);
+		show_7segment(num);
+		if (flag == 0)
+		{
+			set_sq_wave(num);
+		}
 	}
 }

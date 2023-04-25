@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.7.0   MAIN                                                              04/22/2023 17:35:59 PAGE 1   
+C51 COMPILER V9.60.7.0   MAIN                                                              04/25/2023 13:53:54 PAGE 1   
 
 
 C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
@@ -16,7 +16,7 @@ line level    source
    6          #include "quad_7segment.h"  
    7          #include "timer1.h"
    8          
-   9          sbit flag = P3^0;
+   9          sbit flag = P3^6;
   10          
   11          
   12          void main (void)
@@ -50,24 +50,20 @@ line level    source
   40   3          }
   41   2          //print on 7 segment
   42   2          //Global Flag
-  43   2          if (flag == 0 || counter == 5)
-  44   2          {
-  45   3            num = 0;
-  46   3            counter = 0;
-  47   3            flag = 1;
+  43   2          // Frequency generator
+  44   2          show_7segment(num);
+  45   2          if (flag == 0)
+  46   2          {
+  47   3            set_sq_wave(num);
   48   3          }
-  49   2          show_7segment(num);
-  50   2      
-  51   2          // Frequency generator
-  52   2          set_sq_wave(num);
-  53   2        }
-  54   1      }
-C51 COMPILER V9.60.7.0   MAIN                                                              04/22/2023 17:35:59 PAGE 2   
-
+  49   2        }
+  50   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    109    ----
+   CODE SIZE        =     90    ----
+C51 COMPILER V9.60.7.0   MAIN                                                              04/25/2023 13:53:54 PAGE 2   
+
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----

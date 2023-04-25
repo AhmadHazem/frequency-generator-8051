@@ -5,6 +5,7 @@ sbit control1 = P0^3;            // Defining LED pin
 sbit control2 = P0^2;            // Defining LED pin
 sbit control3 = P0^1;            // Defining LED pin
 sbit control4 = P0^0;            // Defining LED pin
+
 #define DIGIT_0 0xC0
 #define DIGIT_1 0xF9
 #define DIGIT_2 0xA4
@@ -16,6 +17,33 @@ sbit control4 = P0^0;            // Defining LED pin
 #define DIGIT_8 0x80
 #define DIGIT_9 0x90
 #define BLANK 0xFF
+
+/*
+#define DIGIT_0 0x3F
+#define DIGIT_1 0x06
+#define DIGIT_2 0x5B
+#define DIGIT_3 0x4F
+#define DIGIT_4 0x66
+#define DIGIT_5 0x6D
+#define DIGIT_6 0x7D
+#define DIGIT_7 0x07
+#define DIGIT_8 0x7F
+#define DIGIT_9 0x4F
+#define BLANK 0x00
+*/
+/*
+#define DIGIT_0 0
+#define DIGIT_1 1
+#define DIGIT_2 2 
+#define DIGIT_3 3
+#define DIGIT_4 4
+#define DIGIT_5 5
+#define DIGIT_6 6
+#define DIGIT_7 7
+#define DIGIT_8 8
+#define DIGIT_9 9
+#define BLANK 0
+*/
 
 
 
@@ -34,6 +62,7 @@ unsigned char numToPattern(unsigned char digit){
 	switch (digit) {
     case 0:
 						pattern=DIGIT_0;
+
             break;
     case 1:
 						pattern=DIGIT_1;

@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.7.0   INTERRUPT0                                                        04/20/2023 15:49:42 PAGE 1   
+C51 COMPILER V9.60.7.0   INTERRUPT0                                                        04/25/2023 13:53:54 PAGE 1   
 
 
 C51 COMPILER V9.60.7.0, COMPILATION OF MODULE INTERRUPT0
@@ -10,7 +10,7 @@ line level    source
 
    1          #include "Interrupt0.h"
    2          
-   3          sbit flag = P3^0;
+   3          sbit flag = P3^6;
    4          
    5          void Ext_int0_Init(void)        
    6          {
@@ -23,7 +23,7 @@ line level    source
   13          void External0_ISR(void) interrupt 0
   14          {
   15   1        
-  16   1        flag = 0;
+  16   1      flag = ~flag;
   17   1        // Mtgeesh hna ya zoz 5lif fe el if in the main.c
   18   1      } 
   19          

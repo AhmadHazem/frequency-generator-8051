@@ -70,7 +70,7 @@ void set_sq_wave(unsigned int freq)
 		num = freq;
 		
 		// Calculating time needed for each high/low portion
-		int_loop = 460800 / (num * 1.0) - 27;
+		int_loop = 460800 / (num * 1.0) - 30;
 		ext_loop = 1;
 
 		// Consider the case where the loop count is greater than 65536

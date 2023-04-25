@@ -1,6 +1,6 @@
 #include "Interrupt0.h"
 
-sbit flag = P3^0;
+sbit flag = P3^6;
 
 void Ext_int0_Init(void)				
 {
@@ -13,7 +13,7 @@ void Ext_int0_Init(void)
 void External0_ISR(void) interrupt 0
 {
 	
-	flag = 0;
+flag = ~flag;
 	// Mtgeesh hna ya zoz 5lif fe el if in the main.c
 } 
 
