@@ -1,22 +1,26 @@
 # Frequency Generator 8051 Project README
 
 ## Project Description
+### Frequency Generator :
 This project is a frequency generator that uses a keypad to input a frequency value, which is then displayed on a 7-segment display. The frequency value is used to generate a square wave, which is output through a pin on the microcontroller. The program uses interrupts to detect when the square wave should be toggled on or off. The program runs continuously, waiting for input from the keypad and updating the frequency value and 7-segment display accordingly.
+### Frequency Counter :
 Bonus extra project:
 this project is an Arduino frequency counter that uses a library called FreqCounter to measure the frequency of an input signal. The frequency is displayed on a 16x2 LCD screen in either Hz, KHz, or MHz, depending on the magnitude of the frequency. The program initializes the LCD screen and sets up the FreqCounter library with calibration and gating parameters. It then enters a while loop that measures the frequency of the input signal using the FreqCounter library and displays the frequency on the LCD screen in the appropriate units. The program uses delay functions to control the timing of the measurements and display updates. this project was used to verify the previous Freqencty generator project. 
 Also, Proteus Simulation is Provided. 
 ## Table of Contents
 - [Frequency Generator 8051 Project README](#frequency-generator-8051-project-readme)
   - [Project Description](#project-description)
+    - [Frequency Generator :](#frequency-generator-)
+    - [Frequency Counter :](#frequency-counter-)
   - [Table of Contents](#table-of-contents)
   - [Project Overview](#project-overview)
   - [Hardware Requirements](#hardware-requirements)
   - [Software Requirements](#software-requirements)
-    - [Frequency Generator :](#frequency-generator-)
-    - [Frequency Counter :](#frequency-counter-)
-  - [Installation and Setup](#installation-and-setup)
     - [Frequency Generator :](#frequency-generator--1)
     - [Frequency Counter :](#frequency-counter--1)
+  - [Installation and Setup](#installation-and-setup)
+    - [Frequency Generator :](#frequency-generator--2)
+    - [Frequency Counter :](#frequency-counter--2)
   - [Usage](#usage)
   - [Contributing](#contributing)
   - [License](#license)
